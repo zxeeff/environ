@@ -20,9 +20,21 @@ set et
 
 set shiftwidth=4
 
-map <F2> :NERDTreeToggle <CR>
+nnoremap ` :NERDTreeToggle <CR>
 map <F3> :w!\|:shell <CR>
 
 colorscheme jellybeans
 set nu
+syntax on
+
+autocmd FileType python map <buffer> <C-e> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <C-e> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
 
